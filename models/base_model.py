@@ -43,6 +43,7 @@ class BaseModel:
         """returns a dictionary containing all keys/values of __dict__"""
         return {
                 'my_number': self.my_number,
+                '__class__': type(self).__name__,
                 'name': self.name,
                 'updated_at': datetime.isoformat(self.updated_at),
                 'id': self.id,
