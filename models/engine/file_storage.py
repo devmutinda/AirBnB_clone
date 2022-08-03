@@ -6,7 +6,7 @@ import json
 
 
 class FileStorage:
-    """serializes instances to a JSON file and 
+    """serializes instances to a JSON file and
     deserializes JSON file to instances"""
     __file_path = "file.json"
     __objects = {}
@@ -17,7 +17,8 @@ class FileStorage:
 
     def new(self, obj):
         """sets in __objects the obj"""
-        self.__objects = f"{type(obj).__name__}.{self.id}"
+        self.__objects.update({f'{type(obj).__name__}.\
+                {obj.id}': obj.to_dict()})
 
     def save(self):
         """serializes __objects to the JSON file"""
@@ -26,6 +27,8 @@ class FileStorage:
 
     def reload(self):
         """deserializes the JSON file to __objects"""
-        with open(self.__file_path, 'r', encoding="utf-8") as f:
-            self.__objects = json.loads(f.read())
-
+        try:
+            with open(self.__file_path, 'r', encoding="utf-8") as f:
+                self.__objects = json.loads(f.read())
+        except Exception:
+            self.__objects = {}
