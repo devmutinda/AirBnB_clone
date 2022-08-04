@@ -4,6 +4,7 @@ This module contains FileStorage class
 """
 import json
 from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage:
@@ -35,7 +36,10 @@ class FileStorage:
                 data = json.loads(f.read())
                 for key, value in data.items():
                     model_name, model_id = key.split('.')
-                    self.new(eval(model_name)(**value))
+                    try:
+                        self.new(eval(model_name)(**value))
+                    except Exception as e:
+                        print(e)
 
         except Exception:
             self.__objects = {}
