@@ -11,6 +11,7 @@ class BaseModel:
     """
     Defines all common attributes for other classes
     """
+
     def __init__(self, *args, **kwargs):
         """Instance constructor"""
         if (kwargs):
