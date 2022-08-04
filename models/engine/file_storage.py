@@ -3,6 +3,7 @@
 This module contains FileStorage class
 """
 import json
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -17,18 +18,24 @@ class FileStorage:
 
     def new(self, obj):
         """sets in __objects the obj"""
-        self.__objects.update(
-            {f'{type(obj).__name__}.{obj.id}': obj.to_dict()})
+        key = f'{type(obj).__name__}.{obj.id}'
+        self.__objects[key] = obj
 
     def save(self):
         """serializes __objects to the JSON file"""
+        temp = self.__objects
+        obj_dict = {obj: temp[obj].to_dict() for obj in temp.keys()}
         with open(self.__file_path, 'w', encoding="utf-8") as f:
-            f.write(json.dumps(self.__objects))
+            f.write(json.dumps(obj_dict))
 
     def reload(self):
         """deserializes the JSON file to __objects"""
         try:
             with open(self.__file_path, 'r', encoding="utf-8") as f:
-                self.__objects = json.loads(f.read())
+                data = json.loads(f.read())
+                for key, value in data.items():
+                    model_name, model_id = key.split('.')
+                    self.new(eval(model_name)(**value))
+
         except Exception:
             self.__objects = {}
