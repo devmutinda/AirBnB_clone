@@ -11,9 +11,6 @@ class BaseModel:
     """
     Defines all common attributes for other classes
     """
-    name = None
-    my_number = None
-
     def __init__(self, *args, **kwargs):
         """Instance constructor"""
         if (kwargs):
@@ -40,11 +37,10 @@ class BaseModel:
 
     def to_dict(self):
         """returns a dictionary containing all keys/values of __dict__"""
-        return {
-                'my_number': self.my_number,
-                '__class__': type(self).__name__,
-                'name': self.name,
-                'updated_at': datetime.isoformat(self.updated_at),
-                'id': self.id,
-                'created_at': datetime.isoformat(self.created_at)
-                }
+        temp = self.__dict__.copy()
+        for key, value in temp.items():
+            if key == "created_at" or key == "updated_at":
+                value = datetime.isoformat(value)
+                temp[key] = value
+        temp['__class__'] = type(self).__name__
+        return temp
