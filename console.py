@@ -136,7 +136,7 @@ class HBNBCommand(cmd.Cmd):
             print("** attribute name missing **")
             return
         if len(arg2) < 3:
-            print("** value name missing **")
+            print("** value missing **")
             return
         arg2 = list(ev(arg2))
         obj = tempD.get(y)
