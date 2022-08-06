@@ -100,9 +100,6 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args):
         """Creates a new instance of a class"""
         arg2 = shlex.split(args)
-        if len(arg2) < 1:
-            print("** class name missing **")
-            return
         if arg2[0] not in self.classes:
             print("** class doesn't exist **")
             return
