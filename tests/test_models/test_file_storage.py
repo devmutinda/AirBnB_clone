@@ -43,3 +43,7 @@ class storageTest(unittest.TestCase):
         z = storage.all()
         self.assertEqual(z, {})
         os.rename('file2.json', 'file.json')
+
+
+if __name__ == "__main__":
+    unittest.main()
