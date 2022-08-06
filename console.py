@@ -44,10 +44,10 @@ class HBNBCommand(cmd.Cmd):
         """Creates a new instance of a class"""
         arg2 = shlex.split(args)
         if len(arg2) < 1:
-            print("**class name missing **")
+            print("** class name missing **")
             return
         if arg2[0] not in self.classes:
-            print("**class doesn't exist **")
+            print("** class doesn't exist **")
             return
         model = eval(arg2[0])()
         model.save()
@@ -57,10 +57,10 @@ class HBNBCommand(cmd.Cmd):
         """Prints the string representation of an instance """
         arg2 = shlex.split(args)
         if len(arg2) < 1:
-            print("**class name missing **")
+            print("** class name missing **")
             return
         if arg2[0] not in self.classes:
-            print("**class doesn't exist **")
+            print("** class doesn't exist **")
             return
         if len(arg2) < 2:
             print("** instance id missing **")
@@ -79,10 +79,10 @@ class HBNBCommand(cmd.Cmd):
         """Deletes an instance based on the class name and id"""
         arg2 = shlex.split(args)
         if len(arg2) < 1:
-            print("**class name missing **")
+            print("** class name missing **")
             return
         if arg2[0] not in self.classes:
-            print("**class doesn't exist **")
+            print("** class doesn't exist **")
             return
         if len(arg2) < 2:
             print("** instance id missing **")
@@ -101,10 +101,10 @@ class HBNBCommand(cmd.Cmd):
         """Creates a new instance of a class"""
         arg2 = shlex.split(args)
         if len(arg2) < 1:
-            print("**class name missing **")
+            print("** class name missing **")
             return
         if arg2[0] not in self.classes:
-            print("**class doesn't exist **")
+            print("** class doesn't exist **")
             return
         storage = FileStorage()
         storage.reload()
@@ -120,10 +120,10 @@ class HBNBCommand(cmd.Cmd):
         or updating attribute"""
         arg2 = shlex.split(args)
         if len(arg2) < 1:
-            print("**class name missing **")
+            print("** class name missing **")
             return
         if arg2[0] not in self.classes:
-            print("**class doesn't exist **")
+            print("** class doesn't exist **")
             return
         if len(arg2) < 2:
             print("** instance id missing **")
