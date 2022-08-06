@@ -14,18 +14,22 @@ from models.user import User
 from models.engine.file_storage import FileStorage
 import shlex
 
+
 def ev(val):
-        """converts suitable arguments to int or float"""
-        for i in val:
-                try:
-                        yield json.loads(i)
-                except:
-                        yield i
+    """converts suitable arguments to int or float"""
+    for i in val:
+        try:
+            yield json.loads(i)
+        except Exception:
+            yield i
+
+
 class HBNBCommand(cmd.Cmd):
     """CLI for AirBnB clone"""
     prompt = '(hbnb) '
     file = None
-    classes = ['BaseModel','Place','State','City','Amenity','Review','User']
+    classes = ['BaseModel', 'Place', 'State',
+               'City', 'Amenity', 'Review', 'User']
 
     def do_EOF(self, line):
         """Handles EOF(Ctrl + D)"""
@@ -112,7 +116,8 @@ class HBNBCommand(cmd.Cmd):
         print(alList)
 
     def do_update(self, args):
-        """Updates an instance based on the class name and id by adding or updating attribute"""
+        """Updates an instance based on the class name and id by adding
+        or updating attribute"""
         arg2 = shlex.split(args)
         if len(arg2) < 1:
             print("**class name missing **")
@@ -139,7 +144,7 @@ class HBNBCommand(cmd.Cmd):
         arg2 = list(ev(arg2))
         obj = tempD.get(y)
         dict2 = obj.to_dict()
-        dict2.update({arg2[2]:arg2[3]})
+        dict2.update({arg2[2]: arg2[3]})
         obj2 = eval(arg2[0])(**dict2)
         obj2.save()
         tempD.update({y: obj2})
