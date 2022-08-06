@@ -101,6 +101,5 @@ class baseTest(unittest.TestCase):
         self.assertEqual(model2.created_at, model.created_at)
 
 
-
 if __name__ == '__main__':
     unittest.main()
