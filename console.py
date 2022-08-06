@@ -100,15 +100,19 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args):
         """Creates a new instance of a class"""
         arg2 = shlex.split(args)
-        if arg2[0] not in self.classes:
+        if len(arg2) >= 1 and arg2[0] not in self.classes:
             print("** class doesn't exist **")
             return
         storage = FileStorage()
         storage.reload()
         tempD = storage.all()
         alList = []
+
         for key, obj in tempD.items():
-            if args[0] in key:
+            if len(arg2) >= 1:
+                if args[0] in key:
+                    alList.append(str(obj))
+            else:
                 alList.append(str(obj))
         print(alList)
 
