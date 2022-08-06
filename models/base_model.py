@@ -39,9 +39,7 @@ class BaseModel:
     def to_dict(self):
         """returns a dictionary containing all keys/values of __dict__"""
         temp = self.__dict__.copy()
-        for key, value in temp.items():
-            if key == "created_at" or key == "updated_at":
-                value = datetime.isoformat(value)
-                temp[key] = value
+        temp['created_at'] = self.created_at.isoformat()
+        temp['updated_at'] = self.updated_at.isoformat()
         temp['__class__'] = type(self).__name__
         return temp
