@@ -180,7 +180,6 @@ class HBNBCommand(cmd.Cmd):
         except Exception:
             print("** invalid command **")
             return
-
         if arg1 not in self.classes:
             print("** class doesn't exist ")
             return
@@ -260,7 +259,7 @@ class HBNBCommand(cmd.Cmd):
                             valx = list(item.split(':'))
                             valx = list(ev(valx))
                         except Exception:
-                            print("** empty dictionary **")
+                            print("** attribute name missing **")
                             return
                         setattr(tempD[y], valx[0], valx[1])
                         tempD[y].save()
