@@ -261,9 +261,8 @@ class HBNBCommand(cmd.Cmd):
                         except Exception:
                             print("** attribute name missing **")
                             return
-                        setattr(tempD[y], valx[0], valx[1])
-                        
-                        storage.save()
+                        setattr(tempD[y], valx[0], valx[1])                       
+                    storage.save()
 
                 else:
                     print("** no instance found **")
