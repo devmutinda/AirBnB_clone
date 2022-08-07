@@ -255,7 +255,7 @@ class HBNBCommand(cmd.Cmd):
                     for item in new_list:
                         key, value = item.split(':')
                         setattr(tempD[y], key, value)
-                    storage.save()
+                        storage.save()
                 else:
                     print("** no instance found **")
 
