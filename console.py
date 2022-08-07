@@ -157,6 +157,28 @@ class HBNBCommand(cmd.Cmd):
 
         return
 
+    def default(self, args):
+        args = shlex.split(args)
+        if len(args) != 1:
+            print("** invalid command **")
+            return
+        # print(len(args))
+        arg1, arg2 = args[0].split('.')
+        if arg1 not in self.classes:
+            print("** Class doesn't exist ")
+            return
+        storage = FileStorage()
+        storage.reload()
+        tempD = storage.all()
+        new_list = []
+        for key, value in tempD.items():
+            if arg1 in key:
+                new_list.append(str(value))
+        if arg2 == "all()":
+            print(new_list)
+        elif arg2 == "count()":
+            print(len(new_list))
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
