@@ -163,7 +163,10 @@ class HBNBCommand(cmd.Cmd):
             print("** invalid command **")
             return
         # print(len(args))
-        arg1, arg2 = args[0].split('.')
+        try:
+            arg1, arg2 = args[0].split('.')
+        except Exception:
+            print("** invalid command **")
         if arg1 not in self.classes:
             print("** Class doesn't exist ")
             return
@@ -178,6 +181,21 @@ class HBNBCommand(cmd.Cmd):
             print(new_list)
         elif arg2 == "count()":
             print(len(new_list))
+
+        elif "show" in arg2:
+            try:
+                command, new_id = arg2.split('(')
+            except Exception:
+                print("** invalid command **")
+            if command != "show":
+                print("** invalid command **")
+                return
+            new_id = new_id.replace(')', '')
+            for items in new_list:
+                if new_id in items:
+                    print(items)
+                    return
+            print("** no instance found **")
 
 
 if __name__ == '__main__':
