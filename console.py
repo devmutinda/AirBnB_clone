@@ -191,12 +191,14 @@ class HBNBCommand(cmd.Cmd):
         for key, value in tempD.items():
             if arg1 in key:
                 new_list.append(str(value))
+
         if arg2 == "all()":
             """
             Retrives all instances
             Usage: <class name>.all()
             """
             print(new_list)
+
         elif arg2 == "count()":
             """
             Retrieves number of instances of class
@@ -232,6 +234,7 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()
             else:
                 print("** no instance found **")
+
         elif "update" in arg2:
             """
             Updates instance based on id
@@ -240,21 +243,17 @@ class HBNBCommand(cmd.Cmd):
             new_arg = check_arg(arg2, "update")
             if not new_arg:
                 return
-            if len(args) != 3:
+            if len(args) > 3:
                 try:
                     new_list = list(new_arg.split('{'))
                 except Exception:
                     print("** invalid arguments **")
                     return
                 new_id = new_list[0].replace(',', '')
-                try:
-                    new_dict = new_list[1].replace('}', '')
-                except Exception:
-                    print("** few arguments **")
-                    return
+                new_dict = new_list[1].replace('}', '')
                 new_list = list(new_dict.split(','))
-                # print(new_list)
                 y = f"{arg1}.{new_id}"
+
                 if y in tempD.keys():
                     for item in new_list:
                         try:
@@ -264,10 +263,11 @@ class HBNBCommand(cmd.Cmd):
                             return
                         setattr(tempD[y], key, value)
                         storage.save()
+
                 else:
                     print("** no instance found **")
 
-            else:
+            elif len(args) == 3:
                 new_id, new_key, new_value = new_arg.split(',')
                 y = f"{arg1}.{new_id}"
                 if y in tempD.keys():
@@ -275,9 +275,8 @@ class HBNBCommand(cmd.Cmd):
                     storage.save()
                 else:
                     print("** no instance found **")
-
-        else:
-            print("** invalid command **")
+            else:
+                print("** attribute missing **")
 
 
 if __name__ == '__main__':
