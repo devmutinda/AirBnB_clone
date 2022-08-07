@@ -247,13 +247,21 @@ class HBNBCommand(cmd.Cmd):
                     print("** invalid arguments **")
                     return
                 new_id = new_list[0].replace(',', '')
-                new_dict = new_list[1].replace('}', '')
+                try:
+                    new_dict = new_list[1].replace('}', '')
+                except Exception:
+                    print("** few arguments **")
+                    return
                 new_list = list(new_dict.split(','))
                 # print(new_list)
                 y = f"{arg1}.{new_id}"
                 if y in tempD.keys():
                     for item in new_list:
-                        key, value = item.split(':')
+                        try:
+                            key, value = item.split(':')
+                        except Exception:
+                            print("** empty dictionary **")
+                            return
                         setattr(tempD[y], key, value)
                         storage.save()
                 else:
