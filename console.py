@@ -24,6 +24,16 @@ def ev(val):
         except Exception:
             yield i
 
+def check_arg(arg2, msg):
+    try:
+        command, new_id = arg2.aplit('(')
+    except Exception:
+        print("** invalid command **")
+    if command != msg:
+        print("** invalid command **")
+        return None
+    return new_id.replace(')', '')
+
 
 class HBNBCommand(cmd.Cmd):
     """CLI for AirBnB clone"""
@@ -160,7 +170,8 @@ class HBNBCommand(cmd.Cmd):
     def default(self, args):
         args = shlex.split(args)
         if len(args) != 1:
-            print("** invalid command **")
+            print("** invalid com
+                    mand **")
             return
         # print(len(args))
         try:
@@ -183,19 +194,31 @@ class HBNBCommand(cmd.Cmd):
             print(len(new_list))
 
         elif "show" in arg2:
-            try:
-                command, new_id = arg2.split('(')
-            except Exception:
-                print("** invalid command **")
-            if command != "show":
-                print("** invalid command **")
+            new_id = check_arg(arg2, "show")
+            if (!new_id):
                 return
-            new_id = new_id.replace(')', '')
             for items in new_list:
                 if new_id in items:
                     print(items)
                     return
             print("** no instance found **")
+
+        elif "destroy" in arg2:
+            try:
+                command, new_id = arg2.split('(')
+            except Exception:
+                print("** invalid command **")
+            if command != "destroy":
+                print("** invalid command **")
+                return
+            new_id = new_id.replace(')', '')
+            y = f"{arg1}.{new_id}"
+            if y in tempD.keys():
+                del tempD[y]
+                storage.save()
+            else:
+                print("** no instance found **")
+
 
 
 if __name__ == '__main__':
