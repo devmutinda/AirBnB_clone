@@ -182,7 +182,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         if arg1 not in self.classes:
-            print("** Class doesn't exist ")
+            print("** class doesn't exist ")
             return
         storage = FileStorage()
         storage.reload()
@@ -257,11 +257,13 @@ class HBNBCommand(cmd.Cmd):
                 if y in tempD.keys():
                     for item in new_list:
                         try:
-                            key, value = item.split(':')
+                            valx = list(item.split(':'))
+                            valx = list(ev(valx))
                         except Exception:
                             print("** empty dictionary **")
                             return
-                        setattr(tempD[y], key, value)
+                        setattr(tempD[y], valx[0], valx[1])
+                        tempD[y].save()
                         storage.save()
 
                 else:
@@ -269,6 +271,10 @@ class HBNBCommand(cmd.Cmd):
 
             elif len(args) == 3:
                 new_id, new_key, new_value = new_arg.split(',')
+                new_list = []
+                new_list.append(new_value)
+                new_list = list(ev(new_list))
+                new_value = new_list[0]
                 y = f"{arg1}.{new_id}"
                 if y in tempD.keys():
                     setattr(tempD[y], new_key, new_value)
