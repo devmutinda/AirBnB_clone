@@ -24,9 +24,10 @@ def ev(val):
         except Exception:
             yield i
 
+
 def check_arg(arg2, msg):
     try:
-        command, new_id = arg2.aplit('(')
+        command, new_id = arg2.split('(')
     except Exception:
         print("** invalid command **")
     if command != msg:
@@ -170,10 +171,8 @@ class HBNBCommand(cmd.Cmd):
     def default(self, args):
         args = shlex.split(args)
         if len(args) != 1:
-            print("** invalid com
-                    mand **")
+            print("** invalid command **")
             return
-        # print(len(args))
         try:
             arg1, arg2 = args[0].split('.')
         except Exception:
@@ -195,7 +194,7 @@ class HBNBCommand(cmd.Cmd):
 
         elif "show" in arg2:
             new_id = check_arg(arg2, "show")
-            if (!new_id):
+            if not new_id:
                 return
             for items in new_list:
                 if new_id in items:
@@ -204,21 +203,17 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
         elif "destroy" in arg2:
-            try:
-                command, new_id = arg2.split('(')
-            except Exception:
-                print("** invalid command **")
-            if command != "destroy":
-                print("** invalid command **")
+            new_id = check_arg(arg2, "destroy")
+            if not new_id:
                 return
-            new_id = new_id.replace(')', '')
             y = f"{arg1}.{new_id}"
             if y in tempD.keys():
                 del tempD[y]
                 storage.save()
             else:
                 print("** no instance found **")
-
+        else:
+            print("** invalid command **")
 
 
 if __name__ == '__main__':
