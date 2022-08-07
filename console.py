@@ -30,6 +30,7 @@ def check_arg(arg2, msg):
         command, new_id = arg2.split('(')
     except Exception:
         print("** invalid command **")
+        return None
     if command != msg:
         print("** invalid command **")
         return None
@@ -169,14 +170,17 @@ class HBNBCommand(cmd.Cmd):
         return
 
     def default(self, args):
+        """Handles other commands"""
         args = shlex.split(args)
-        if len(args) != 1:
-            print("** invalid command **")
-            return
         try:
             arg1, arg2 = args[0].split('.')
+            if len(args) > 1:
+                for i in range(1, len(args)):
+                    arg2 += args[i]
         except Exception:
             print("** invalid command **")
+            return
+
         if arg1 not in self.classes:
             print("** Class doesn't exist ")
             return
@@ -188,11 +192,23 @@ class HBNBCommand(cmd.Cmd):
             if arg1 in key:
                 new_list.append(str(value))
         if arg2 == "all()":
+            """
+            Retrives all instances
+            Usage: <class name>.all()
+            """
             print(new_list)
         elif arg2 == "count()":
+            """
+            Retrieves number of instances of class
+            Usage: <class name>.count()
+            """
             print(len(new_list))
 
         elif "show" in arg2:
+            """
+            Retrieves instance based on id
+            Usage: <class name>.show(<id>)
+            """
             new_id = check_arg(arg2, "show")
             if not new_id:
                 return
@@ -203,6 +219,10 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
         elif "destroy" in arg2:
+            """
+            Destroys instance based on its id
+            Usage: <class name>.destroy(<id>)
+            """
             new_id = check_arg(arg2, "destroy")
             if not new_id:
                 return
@@ -212,6 +232,26 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()
             else:
                 print("** no instance found **")
+        elif "update" in arg2:
+            """
+            Updates instance based on id
+            Usage: <class name>.update(<id>, <name>, <value>)
+            """
+            if (len(args) != 3):
+                print("** Should have 3 arguments **")
+                return
+            new_arg = check_arg(arg2, "update")
+            if not new_arg:
+                return
+            new_id, new_key, new_value = new_arg.split(',')
+            # print(new_id, new_key, new_value)
+            y = f"{arg1}.{new_id}"
+            if y in tempD.keys():
+                setattr(tempD[y], new_key, new_value)
+                storage.save()
+            else:
+                print("** no instance found **")
+
         else:
             print("** invalid command **")
 
