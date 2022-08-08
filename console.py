@@ -242,7 +242,7 @@ class HBNBCommand(cmd.Cmd):
             new_arg = check_arg(arg2, "update")
             if not new_arg:
                 return
-            if len(args) > 3:
+            if '{' in new_arg:
                 try:
                     new_list = list(new_arg.split('{'))
                 except Exception:
