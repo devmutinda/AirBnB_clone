@@ -1,6 +1,6 @@
 # AirBnB_clone
 ## 🧐 About
-This is a Airbnb clone projects that will be build with the aim to learn and apply concepts of high level programming and software engineering in general
+This is a Airbnb clone project that is built with the aim of learning and applying concepts of high level programming and software engineering.
 
 ## 🏁 Getting started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.\
@@ -17,8 +17,7 @@ You can run the shell (in an interactive or non-interactive mode) to manipulate 
 ```
 ./console.py
 ```
-The prompt shown below will appear which will require you to run some commands.\
-`(hbnb) `
+The prompt `(hbnb)   ` will appear to show that the console is now active, and that you can enter a series of commands to interact with the data models(classes)\
 
 To check which commands are supported by the console, type `help` and click enter.\
 The following commands are supported in the console:
