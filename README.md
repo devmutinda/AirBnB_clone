@@ -1,10 +1,20 @@
 # AirBnB_clone
-## 🧐About
+## 🧐 About
 This is a Airbnb clone projects that will be build with the aim to learn and apply concepts of high level programming and software engineering in general
 
-## 🏁Installation and usage
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.\
-First, download this repo on your computer.\
+## 🏁 Getting started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+## Installation
+First, download this repo on your computer.
+
+## 🔧 Testing
+This project uses the python unittest model for automated tests.\
+Unit tests are run as shown below:
+```
+python3 -m unittest discover tests
+```
+## 🎈 Usage
 You can run the shell (in an interactive or non-interactive mode) to manipulate your models. You can start it from running the console.py file:\
 ```
 ./console.py
@@ -40,7 +50,7 @@ Updates an instance based on the class name and id by adding or updating attribu
 ```
 update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"
 ```
-#### quit
+### quit
 Quits the shell. Ex:\
 ```
 quit
