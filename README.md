@@ -1,11 +1,15 @@
 # AirBnB_clone
+## 📝 Table of contents
+* [About]()
+* [Getting started]()
+* [Testing]()
+* [Usage]()
+* [Authors](## ✍️Authors)
 ## 🧐 About
 This is a Airbnb clone projects that will be build with the aim to learn and apply concepts of high level programming and software engineering in general
 
 ## 🏁 Getting started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
-## Installation
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.\
 First, download this repo on your computer.
 
 ## 🔧 Testing
