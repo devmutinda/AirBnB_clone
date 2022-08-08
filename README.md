@@ -10,7 +10,9 @@ Download this repo on your computer.
 
 ### Usage
 You can run the shell (in an interactive or non-interactive mode) to manipulate your models. You can start it from running the console.py file:\
-`./console.py`
+```
+./console.py
+```
 
 The following commands are supported in the console:
 #### create
