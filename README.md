@@ -1,6 +1,6 @@
 # AirBnB_clone
 ## 🧐 About
-This is a Airbnb clone project that is built with the aim of learning and applying concepts of high level programming and software engineering.
+This is a Airbnb clone project that is built with the aim of learning and applying concepts of high level programming.
 
 ## 🏁 Getting started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.\
@@ -8,7 +8,7 @@ First, download this repo on your computer.
 
 ## 🔧 Testing
 This project uses the python unittest model for automated tests.\
-Unit tests are run as shown below:
+You can run the tests as shown below:
 ```
 python3 -m unittest discover tests
 ```
@@ -17,7 +17,7 @@ You can run the shell (in an interactive or non-interactive mode) to manipulate 
 ```
 ./console.py
 ```
-The prompt `(hbnb)   ` will appear to show that the console is now active, and that you can enter a series of commands to interact with the data models(classes)\
+The prompt `(hbnb) ` will appear on your terminal to show that the console is now active, and that you can enter a series of commands to interact with the data models(classes)\
 
 To check which commands are supported by the console, type `help` and click enter.\
 The following commands are supported in the console:
