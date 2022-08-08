@@ -13,43 +13,46 @@ Unit tests are run as shown below:
 python3 -m unittest discover tests
 ```
 ## 🎈 Usage
-You can run the shell (in an interactive or non-interactive mode) to manipulate your models. You can start it from running the console.py file:\
+You can run the shell (in an interactive or non-interactive mode) to manipulate your models. You can start it from running the console.py file on your linux terminal:
 ```
 ./console.py
 ```
+The prompt shown below will appear which will require you to run some commands.\
+`(hbnb) `
 
+To check which commands are supported by the console, type `help` and click enter.\
 The following commands are supported in the console:
 ### create
-Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id. Ex:\
+Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id. Ex:
 ```
 create BaseModel
 ```
 ### show
-Prints the string representation of an instance based on the class name and id. Ex:\
+Prints the string representation of an instance based on the class name and id. Ex:
 ```
 show BaseModel 1234-1234-1234.
 ```
 ### destroy
-Deletes an instance based on the class name and id (save the change into the JSON file). Ex:\
+Deletes an instance based on the class name and id (save the change into the JSON file). Ex:
 ```
 destroy BaseModel 1234-1234-1234.
 ```
 ### all
-Prints all string representation of all instances based or not on the class name. Example to show all instances:\
+Prints all string representation of all instances based or not on the class name. Example to show all instances:
 ```
 all
 ```
-Example to show all instances of BaseModel only\
+Example to show all instances of BaseModel only
 ```
 all BaseModel
 ```
 ### update
-Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file). Ex:\
+Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file). Ex:
 ```
 update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"
 ```
 ### quit
-Quits the shell. Ex:\
+Quits the shell. Ex:
 ```
 quit
 ```
