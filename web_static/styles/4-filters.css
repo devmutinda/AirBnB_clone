@@ -22,13 +22,13 @@
 .filters button:hover {
 	opacity: 0.9;
 }
-.filters.locations{
+.filters .locations{
 	float: left;
 	height: 100%;
 	width: 25%;
 	border-right: 1px solid #DDDDDD;
 }
-.filters.amenities{
+.filters .amenities{
 	float: left;
 	height: 100%;
         width: 25%;
