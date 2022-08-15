@@ -65,3 +65,7 @@
 .description {
 	text-align: left;
 }
+span {
+	display: block;
+	padding-top: 60px;
+}
