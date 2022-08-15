@@ -46,17 +46,9 @@
 	font-size: 14px;
 	margin-top: 0;
 }
-.popover ul {
-	padding-left: 0;
-}
-.popover:nth-child(2) {
-	padding-left: 40px;
-}
-.popover li {
-	padding-left: 10px;
-}
 .popover {
 	display: none;
+	padding-left: 0;
 	background-color: #FAFAFA;
 	width: 100%;
 	border: 1px solid #DDDDDD;
@@ -66,6 +58,13 @@
 li {
 	list-style: none;
 }
+.popover li {
+	padding-left: 10px;
+}
+.amenities .popover{
+	padding-left: 40px;
+}
+
 .locations:hover .popover {
 	display: block;
 }
