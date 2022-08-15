@@ -48,10 +48,14 @@
 }
 .popover {
 	display: none;
+	margin-left: 0;
 	background-color: #FAFAFA;
 	width: 100%;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
+	list-style: none;
+}
+li {
 	list-style: none;
 }
 .locations:hover .popover {
