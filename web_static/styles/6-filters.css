@@ -57,10 +57,14 @@ ul {
 	border-radius: 4px;
 	list-style: none;
 }
+.popover h2 {
+	margin-bottom: 0;
+	font-size: 16px;
+}
 li {
 	list-style: none;
 }
-.popover .locations li {
+.locations .popover li {
 	padding-left: 10px;
 }
 .amenities .popover{
