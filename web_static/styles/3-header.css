@@ -4,3 +4,11 @@ header {
 	width: 100%;
 	border-bottom: 1px solid #CCCCCC
 }
+.logo {
+	background-image: url("../images/logo.png");
+	background-repeat: no-repeat;
+	width: 142px;
+	height: 60px;
+	padding-left: 20px;
+	float: left;
+}
