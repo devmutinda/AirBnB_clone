@@ -48,6 +48,7 @@
 }
 ul {
 	padding: 20px 0;
+
 }
 .popover {
 	display: none;
@@ -65,7 +66,10 @@ li {
 	list-style: none;
 }
 .locations .popover li {
-	padding-left: 10px;
+	padding-left: 20px;
+}
+.locations .popover ul {
+	padding-top: 0;
 }
 
 .locations:hover .popover {
