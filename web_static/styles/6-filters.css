@@ -23,30 +23,31 @@
 	opacity: 0.9;
 }
 .locations{
-	padding-left: 40px;
 	float: left;
 	height: 100%;
 	width: 25%;
 	border-right: 1px solid #DDDDDD;
 }
 .amenities{
-	padding-left: 40px;
 	float: left;
 	height: 100%;
 	width: 25%;
 }
 
 .filters h3 {
+	padding-left: 40px;
 	font-weight: 600;
 	margin-bottom: 0;
 }
 
 .filters h4 {
+	padding-left: 40px;
 	font-weight: 400;
 	font-size: 14px;
 	margin-top: 0;
 }
 .popover {
+	padding-left: 0;
 	display: none;
 	margin-left: 0;
 	background-color: #FAFAFA;
@@ -55,8 +56,9 @@
 	border-radius: 4px;
 	list-style: none;
 }
-li {
+.popover li {
 	list-style: none;
+	padding-left: 10px;
 }
 .locations:hover .popover {
 	display: block;
